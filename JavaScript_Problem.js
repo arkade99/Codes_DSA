@@ -191,3 +191,23 @@ console.log(validatePalindrome("12345"));
 console.log(validatePalindrome("Cat the @ chase abcA 123X"));
 
 module.exports = validatePalindrome;
+
+//Sort array based on 1st digit
+function formLargestNumber(arr) {
+  //write your implementation here
+  arr.sort((a, b) => {
+    return firstDigit(b) - firstDigit(a);
+  });
+  console.log(arr);
+  return arr.join("");
+}
+
+function firstDigit(num) {
+  while (num > 10) {
+    num = Math.floor(num / 10);
+  }
+  return num;
+}
+const input = [3, 40, 14, 5, 9]; //->[9,5,40,3,24]
+console.log(formLargestNumber(input));
+module.exports = formLargestNumber;

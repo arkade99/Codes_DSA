@@ -147,3 +147,17 @@ function chunkArray(arr, n) {
 }
 console.log(chunkArray([1, 2, 3, 4, 5], 2)); // [ [ 1, 2 ], [ 3, 4 ], [ 5 ] ]
 module.exports = chunkArray;
+
+function formLargestNumber(arr) {
+  //write your implementation here
+  arr.sort((a, b) => {
+    const strA = a.toString();
+    const strB = b.toString();
+    return (strB + strA).localeCompare(strA + strB);
+  });
+  if (arr[0] === 0) return "0";
+  return arr.join("");
+}
+const input = [3, 30, 34, 5, 9];
+console.log(formLargestNumber(input)); //"9534330"
+module.exports = formLargestNumber;
