@@ -161,3 +161,99 @@ function formLargestNumber(arr) {
 const input = [3, 30, 34, 5, 9];
 console.log(formLargestNumber(input)); //"9534330"
 module.exports = formLargestNumber;
+
+//groupBy based on catagory
+function groupBy(arr, key) {
+  let group = {};
+  arr.forEach((a) => {
+    const i = a[key];
+    if (!group[i]) group[i] = [];
+    group[i].push(a);
+  });
+  return group;
+}
+console.log(
+  groupBy(
+    [
+      { name: "Alice", age: 25 },
+      { name: "Bob", age: 30 },
+      { name: "Charlie", age: 25 },
+    ],
+    "age"
+  )
+);
+module.exports = groupBy;
+
+/*  O/p:
+{
+  '25': [ { name: 'Alice', age: 25 }, { name: 'Charlie', age: 25 } ],
+  '30': [ { name: 'Bob', age: 30 } ]
+}
+*/
+
+// Stack implementation
+
+class Stack {
+  constructor() {
+    // Initialize your stack
+    this.item = [];
+    console.log(this.item);
+  }
+
+  push(element) {
+    // Add element to the top
+    this.item.push(element);
+    return this.item.length;
+  }
+
+  pop() {
+    // Remove and return top element
+    return this.item.pop();
+  }
+
+  peek() {
+    // Return top element without removing
+    return this.item[this.size() - 1];
+  }
+
+  isEmpty() {
+    // Check if stack is empty
+    return this.size() === 0;
+  }
+
+  size() {
+    // Return number of elements
+    return this.item.length;
+  }
+
+  clear() {
+    // Remove all elements
+    return (this.item = []);
+  }
+}
+const stack = new Stack();
+console.log(stack.isEmpty());
+console.log(stack.push(10));
+console.log(stack.push(20));
+console.log(stack.push(30));
+console.log(stack.size());
+console.log(stack.peek());
+console.log(stack.pop());
+console.log(stack.isEmpty());
+console.log(stack.clear());
+console.log(stack.isEmpty());
+
+module.exports = Stack;
+
+/*
+true
+ 1
+ 2
+ 3
+ 3
+ 30
+ 30
+ false
+ []
+ true
+*/
