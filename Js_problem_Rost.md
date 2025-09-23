@@ -45,7 +45,47 @@ console.log(test2([2,5,8,12,30], 13));
    }
    console.log(test2('Madam'));
 2. Reverse a string → Variation: manual loop vs `.reverse()`
+   function rev(x){
+   return (x.split("").reverse()).join('')
+   }
+   console.log(rev("abcde"))
+
+   ***
+
+   function rev(x){
+   const n = x.length
+   let l=0, r=n-1
+   arr= x.split("")
+   while(l<r){
+   [arr[l],arr[r]]=[arr[r],arr[l]]
+   l++;
+   r--;
+   }
+   return arr.join("")
+   }
+   console.log(rev("apple"))
+
 3. Count vowels in a string → Variation: regex vs loop
+   function check(x){
+   const count = x.match(/[aeiou]/gi)
+   return count.length
+   }
+   console.log(check("apple"))
+
+   ***
+
+   function check2(x){
+   let k=0;
+   const vow = 'aeiou'
+   for (let i of x){
+   if (vow.includes(i)){
+   k++
+   }
+   }
+   return k
+   }
+   console.log(check2("apple"))
+
 4. Check anagram → Variation: sorting vs hash map
 5. First non-repeating character → Variation: hash map vs indexOf/lastIndexOf
 6. Check if string has all unique characters → Variation: Set vs manual count
